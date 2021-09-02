@@ -19,7 +19,7 @@ function SuccessErrorComp(props) {
   } = useSelector(userSelector);
 
   return (
-    <div>
+    <div className="text-md">
       {isFetching ? (
         <div className={`self-center`}>
           <Loader type="TailSpin" color="#741717" height={36} width={36} />
@@ -28,10 +28,12 @@ function SuccessErrorComp(props) {
         ""
       )}
       {isSuccess ? (
-        <div className={`flex flex-row items-center text-green-900`}>
-          <CheckCircleIcon className="h-5 mr-1 " />
+        <div
+          className={`w-full justify-evenly flex flex-row items-center text-green-900`}
+        >
+          <CheckCircleIcon className="h-5 mr-1 flex-shrink-0" />
           <h1
-            className={`transition-all duration-500 ease-in-out text center text-lg text-center font-bold text-opacity-70`}
+            className={`transition-all duration-500 ease-in-out text center text-center font-bold text-opacity-70`}
           >
             {props.successWord}
           </h1>
@@ -40,11 +42,11 @@ function SuccessErrorComp(props) {
         ""
       )}
       {isError ? (
-        <div className="flex flex-col ">
+        <div className="flex flex-col  items-center text-avukatimKirmizi">
           <div className="flex flex-row items-center">
             <ExclamationCircleIcon className="h-5 mr-1 text-avukatimKirmizi " />
             <h1
-              className={`transition-all duration-500 ease-in-out text center text-avukatimKirmizi text-lg text-center font-bold text-opacity-70`}
+              className={`transition-all duration-500 ease-in-out text center text-avukatimKirmizi text-center font-bold text-opacity-70`}
             >
               {props.errorWord}
             </h1>

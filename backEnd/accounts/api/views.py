@@ -358,7 +358,7 @@ class SetNewPasswordAPIView(APIView):
             user = CustomUser.objects.get(pk=uid)
 
             if not PasswordResetTokenGenerator().check_token(user, token):
-                return Response({'error': 'Token is not valid, please request a new one'}, status=status.HTTP_400_BAD_REQUEST)
+                return Response({'detail': 'Token is not valid, please request a new one'}, status=status.HTTP_400_BAD_REQUEST)
 
             user.set_password(new_password)
             user.save()

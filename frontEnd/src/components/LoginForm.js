@@ -21,7 +21,7 @@ function LoginForm() {
   const dispatch = useDispatch();
   const { isSuccess } = useSelector(userSelector);
 
-  const [sendMailDiv, setSendMailDivVisible] = useState("invisible");
+  const [sendMailDiv, setSendMailDivVisible] = useState("hidden");
   const setSendMailDivVisibleFunc = () => {
     setSendMailDivVisible("");
   };
@@ -158,9 +158,8 @@ function LoginForm() {
               </Link>
             </div>
           </Form>
-          <div className="w-10/12 mx-auto my-2">
-            <ToMailPasswordChange isVisible={sendMailDiv} />
-          </div>
+
+          <ToMailPasswordChange isVisible={sendMailDiv} />
         </div>
       )}
     </Formik>

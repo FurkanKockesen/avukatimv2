@@ -61,7 +61,6 @@ function SignUpFormLawyer() {
 
   useEffect(() => {
     if (isSuccess) {
-      router.push("/");
     }
   }, [isSuccess]);
 
@@ -99,7 +98,7 @@ function SignUpFormLawyer() {
         >
           <div className="mb-2 self-center">
             <SuccessErrorComp
-              successWord="Kayıt Başarılı"
+              successWord="Kayıt Başarılı, Lütfen E-postanızı Kontrol Ediniz"
               errorWord="Kayıt Yapılamadı"
             />
           </div>

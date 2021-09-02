@@ -3,10 +3,16 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import HeaderSecondary from "../../components/HeaderSecondary";
 import FooterSecondary from "../../components/FooterSecondary";
-import React from "react";
+import React, { useState } from "react";
 import { Formik, Field, Form } from "formik";
 import * as Yup from "yup";
-import { LockClosedIcon } from "@heroicons/react/solid";
+import {
+  ArrowRightIcon,
+  CheckCircleIcon,
+  ExclamationIcon,
+  LockClosedIcon,
+} from "@heroicons/react/solid";
+import Loader from "react-loader-spinner";
 
 const validationSchema = Yup.object().shape({
   password: Yup.string()
@@ -18,8 +24,10 @@ const validationSchema = Yup.object().shape({
 });
 export default function YTG2() {
   const router = useRouter();
+  const [status, setStatus] = useState("");
 
   const sendPasswordChangeRequest = (new_password) => {
+    setStatus("fetching");
     const arr = router.query["slug"].split("beko");
     const uidb64 = arr[0];
     const token = arr[1];
@@ -37,9 +45,12 @@ export default function YTG2() {
       )
       .then((res) => {
         console.log(res);
+        setStatus("success");
+        router.push("/LoginPage");
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.response.data.detail);
+        setStatus("fail");
       });
   };
 
@@ -150,6 +161,36 @@ export default function YTG2() {
                   </Form>
                 )}
               </Formik>
+              <div className="w-11/12">
+                {status === "fetching" ? (
+                  <div className={`mb-3 self-center`}>
+                    <Loader
+                      type="TailSpin"
+                      color="#741717"
+                      height={35}
+                      width={35}
+                    />
+                  </div>
+                ) : status === "success" ? (
+                  <div className="w-full justify-evenly mb-3 flex flex-row text-green-900 items-center">
+                    <CheckCircleIcon className="h-5 flex-shrink-0" />
+                    <p className="mx-1 text-center">
+                      Güncelleme İşleminiz Başarılı, Sağdaki Ok'a Tıklayarak
+                      Tekrar Giriş Yapınız.
+                    </p>
+                    <ArrowRightIcon className="h-7  flex-shrink-0" />
+                  </div>
+                ) : status === "fail" ? (
+                  <div className="w-full justify-evenly mb-3 flex flex-row text-avukatimKirmizi items-center">
+                    <ExclamationIcon className="h-5  flex-shrink-0" />
+                    <p className=" text-center">
+                      Güncelleme Başarısız, Lütfen Tekrar Deneyiniz.
+                    </p>
+                  </div>
+                ) : (
+                  ""
+                )}
+              </div>
             </div>
           </div>
         </div>

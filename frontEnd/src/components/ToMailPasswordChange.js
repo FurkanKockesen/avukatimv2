@@ -41,46 +41,48 @@ function ToMailPasswordChange(props) {
       });
   };
   return (
-    <div
-      className={`${props.isVisible} flex flex-col min-w-full my-5 text-center`}
-    >
+    <div className=" w-10/12 mx-auto my-2">
       <div
-        className="flex flex-row transition duration-500 ease-in-out min-w-full bg-mainColor-mainGray items-center rounded border shadow-inner
-               focus-within:outline focus-within:shadow-outline focus-within:border-avukatimKirmizi"
+        className={`${props.isVisible} flex flex-col min-w-full my-5 text-center`}
       >
-        <input
-          type="email"
-          className=" focus:outline-none bg-mainColor-mainGray mx-3 placeholder-avukatimKirmizi placeholder-opacity-50"
-          placeholder="Şifre Yenilemek için Mail"
-          value={toMail}
-          onChange={(e) => {
-            setToMail(e.target.value);
-          }}
-        />
-        <button
-          onClick={() => {
-            sendPasswordResetRequest(toMail);
-          }}
-          className=" self-center text-white cursor-pointer ml-3 h-8 px-2 w-full text-center bg-avukatimKirmizi rounded-md transition-colors duration-500 focus:shadow-outline hover:bg-avukatimKirmizi-dark"
+        <div
+          className="flex flex-row transition duration-500 ease-in-out min-w-full bg-mainColor-mainGray items-center rounded border shadow-inner
+               focus-within:outline focus-within:shadow-outline focus-within:border-avukatimKirmizi"
         >
-          <ArrowRightIcon className="h-5  mx-auto" />
-        </button>
-      </div>
-      <div className="my-3 flex items-center justify-center">
-        {status === "Fetching" ? (
-          <div className={`${isFetching} self-center`}>
-            <Loader type="TailSpin" color="#741717" height={35} width={35} />
-          </div>
-        ) : status === "Final" ? (
-          <div
-            className={`${isApiInfoDivVisible} flex flex-row text-sm items-center`}
+          <input
+            type="email"
+            className=" focus:outline-none bg-mainColor-mainGray mx-3 placeholder-avukatimKirmizi placeholder-opacity-50"
+            placeholder="Şifre Yenilemek için Mail"
+            value={toMail}
+            onChange={(e) => {
+              setToMail(e.target.value);
+            }}
+          />
+          <button
+            onClick={() => {
+              sendPasswordResetRequest(toMail);
+            }}
+            className=" self-center text-white cursor-pointer ml-3 h-8 px-2 w-full text-center bg-avukatimKirmizi rounded-md transition-colors duration-500 focus:shadow-outline hover:bg-avukatimKirmizi-dark"
           >
-            <InformationCircleIcon className="h-5" />
-            <p className="my-2">{apiInfo.detail}</p>
-          </div>
-        ) : (
-          <div className="my-5 h-5"></div>
-        )}
+            <ArrowRightIcon className="h-5  mx-auto" />
+          </button>
+        </div>
+        <div className="flex items-center justify-center mt-2">
+          {status === "Fetching" ? (
+            <div className={`${isFetching} self-center`}>
+              <Loader type="TailSpin" color="#741717" height={35} width={35} />
+            </div>
+          ) : status === "Final" ? (
+            <div
+              className={`${isApiInfoDivVisible} flex flex-row text-sm items-center`}
+            >
+              <InformationCircleIcon className="h-5" />
+              <p className="my-2">{apiInfo.detail}</p>
+            </div>
+          ) : (
+            <div></div>
+          )}
+        </div>
       </div>
     </div>
   );
