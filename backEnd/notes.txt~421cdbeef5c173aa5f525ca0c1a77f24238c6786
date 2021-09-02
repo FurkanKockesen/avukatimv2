@@ -1,0 +1,28 @@
+TODO:
+-> Doğru cevap verildiğinde puanı nereye eklenecek?
+-> followers_rank
+-> Avukatlara gelen müşteri yorumları
+-> LawyerList için DjangoFilterBackend (city ve specialty)
+
+-> Article eklemede article_id ilkinde oluşmuyor
+-> Main_specialty seçildiğinde specialty de ekleniyor (APIView)
+
+
+-> Category list api (articlelistteki urlden hata çıkıyor category_detaile gidince ? )
+-> Verileri eklemek için command yaz
+
+
+İlerisi İçin :
+- Soru ve cevaplarda tag takip etme özelliği eklenebilir, Takip edilen tagde soru gelince avukata bildirim gider
+- Kullanıcılar sorulara rez gibi birşey atabilir ve ona gelen cevapları veya ona doğru cevap gelirse rez atanlara bildirim gider
+
+[
+"tag1",
+"tag2"
+]
+
+
+
+
+
+

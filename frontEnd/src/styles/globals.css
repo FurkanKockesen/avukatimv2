@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-AbhayaLibre bg-mainColor-mainGray
+  }
+  .shadowLight {
+    box-shadow: 0px 0px 10px 1px #bbbbbb;
+  }
+  .shadowExtraLight {
+    box-shadow: 0px 0px 2px 1px #bbbbbb;
+  }
+  .headerHero {
+    position: relative;
+    background-image:url('../../public/heroImage.png');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    border-radius:  0.375rem 0.375rem 0 0;
+    
+  }
+  .headerHero::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(0,0,0,0.35);
+    border-radius:  0.375rem 0.375rem 0 0;
+    
+  }
+
+  .loginHero {
+    position: relative;
+    background-image:url('../../public/heroImage.png');
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: cover;
+   
+    
+  }
+  .loginHero::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(0,0,0,0.35);
+   
+    
+  }
+}
