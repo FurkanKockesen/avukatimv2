@@ -9,3 +9,4 @@ And lastly Yup for Object schema validation.
 
 on Back-End;
 Django and REST API duo was best option I could go!
+
